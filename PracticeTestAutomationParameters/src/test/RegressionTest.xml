@@ -1,0 +1,72 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="PracticeTestAutomationRegression">
+
+    <test name = "HomePageTest">
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.HomePageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name = "PracticePageTestPL">
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.PracticePageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name = "PositiveTestLogin">
+        <parameter name="UserID" value="student"/>
+        <parameter name="Password" value="Password123"/>
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.LoginPageTest">
+                <methods>
+                    <include name="PositiveTestLoginFunction"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+    <test name = "PracticePageTestNU">
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.PracticePageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name = "NegativeUsernameTest">
+        <parameter name="UserID" value="NegativeUserName"/>
+        <parameter name="Password" value="Password123"/>
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.LoginPageTest">
+                <methods>
+                    <include name="NegativeUsernameTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+    <test name = "PracticePageTestNP">
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.PracticePageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name = "NegativePasswordTest">
+        <parameter name="UserID" value="student"/>
+        <parameter name="Password" value="NegativePass"/>
+        <classes>
+            <class name = "com.PracticeTestAutomation.Test.LoginPageTest">
+                <methods>
+                    <include name="NegativePasswordTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

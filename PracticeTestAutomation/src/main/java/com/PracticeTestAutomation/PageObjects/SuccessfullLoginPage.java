@@ -26,5 +26,6 @@ public class SuccessfullLoginPage extends BasePage {
         String getPageSource = getPageSource();
         Assert.assertTrue(getPageSource.contains("Congratulations student. You successfully logged in!"));
         Assert.assertTrue(isLogoutButtonDisplayed());
+        System.out.println("All test pass");
     }
 }

@@ -8,9 +8,20 @@ public class PracticePage extends BasePage{
 
     private By testLoginPageLocator = By.linkText("Test Login Page");
     private By testExceptionLocator = By.linkText("Test Exceptions");
+    private By menuOptionPractice = By.id("menu-item-20");
 
     public PracticePage(WebDriver driver) {
         super(driver);
+    }
+
+
+
+    public void menuSwitch() {
+        driver.findElement(menuOptionPractice).click();
+    }
+
+    public void loadNav(){
+        waitForElement(menuOptionPractice);
     }
 
     public void load(){
@@ -28,6 +39,9 @@ public class PracticePage extends BasePage{
     }
 
     public LoginPage executePracticePage() {
+
+        loadNav();
+        menuSwitch();
         load();
         verifyPracticePage();
         selectTestLoginPage();

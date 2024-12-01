@@ -1,11 +1,14 @@
 package com.herokuapp.auth;
 
+import com.herokuapp.auth.base.BasePageObject;
 import com.herokuapp.auth.base.BaseTest;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class NegativeAuthPage extends BaseTest {
+public class NegativeAuthPage extends BasePageObject {
 
     String url = "https://the-internet.herokuapp.com/";
     By FormAuthLink = By.linkText("Form Authentication");
@@ -15,21 +18,24 @@ public class NegativeAuthPage extends BaseTest {
     By VerifyTest = By.id("flash");
     By FindLogoutButton = By.xpath("//*[@id=\"content\"]/div/a/i");
 
+    public NegativeAuthPage(WebDriver driver, Logger log) {
+        super(driver, log);
+    }
+
 
     private void launchUrl(String url){
-        log.info("Connecting to:: " + url);
-        driver.get(url);
+        openUrl(url);
     }
 
     private void getInToFormAuth(){
-        driver.findElement(FormAuthLink).click();
+        click(FormAuthLink,5);
     }
 
     private void login(){
         log.info("Negative Test");
-        driver.findElement(UserName).sendKeys("tomsmith");
-        driver.findElement(Password).sendKeys("SuperTopSecretPassword!");
-        driver.findElement(LoginButton).click();
+        type(UserName, "tomsmith");
+        type(Password,"SuperTopSecretPassword!");
+        click(LoginButton,5);
     }
 
     private void verify() {
@@ -47,7 +53,7 @@ public class NegativeAuthPage extends BaseTest {
         log.info("NegativeLoginTest Pass Successfully");
     }
 
-    protected void loginFunction(){
+    public void loginFunction(){
         launchUrl(url);
         getInToFormAuth();
         login();

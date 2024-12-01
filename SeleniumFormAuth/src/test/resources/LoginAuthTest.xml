@@ -3,7 +3,7 @@
 <suite name="SeleniumFormAuth"  parallel="tests">
     <test name="PositiveAuthPage">
         <classes>
-            <class name="com.positiveauth.test.PositiveAuthPageTest">
+            <class name="com.test.AuthPage.PositiveAuthPageTest">
             </class>
         </classes>
     </test>
@@ -11,7 +11,7 @@
 
     <test name="NegativeAuthPage">
         <classes>
-            <class name="com.positiveauth.test.NegativeAuthPageTest">
+            <class name="com.test.AuthPage.NegativeAuthPageTest">
             </class>
         </classes>
     </test>
